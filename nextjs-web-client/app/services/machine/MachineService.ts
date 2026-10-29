@@ -1,0 +1,136 @@
+import {
+  CreateMachineRequest,
+  DeleteMachineRequest,
+  Machine,
+  MachineSchedule,
+  SearchResponse,
+  UpdateMachineRequest,
+  MachineMaintenanceProcess,
+  ManufacturingProcess,
+} from "@/app/types";
+
+import { apiClient } from "../common/apiClient";
+import { MachineLog } from "@/app/types/machine/MachineLog";
+
+export const searchMachinesAsync = async (
+  request: unknown,
+): Promise<SearchResponse<Machine[]>> => {
+  const response = await apiClient.post<SearchResponse<Machine[]>>(
+    "/Machine/search",
+    request,
+  );
+  return response.data;
+};
+
+export const getMachinesAsync = async (): Promise<Machine[]> => {
+  const response = await apiClient.post<Machine[]>("/Machine/query-machines");
+  return response.data;
+};
+
+export const getMachinesByPermissionAsync = async (): Promise<Machine[]> => {
+  const response = await apiClient.post<Machine[]>("/Machine/query-machines-by-permission");
+  return response.data;
+};
+
+export const searchMachineSchedulesAsync = async (
+  request: unknown,
+): Promise<SearchResponse<MachineSchedule[]>> => {
+  const response = await apiClient.post<SearchResponse<MachineSchedule[]>>(
+    "/Machine/query-machines-schedule",
+    request,
+  );
+  return response.data;
+};
+
+export const createMachineAsync = async (
+  request: CreateMachineRequest,
+): Promise<Machine> => {
+  const response = await apiClient.post<Machine>("/Machine/create", request);
+  return response.data;
+};
+
+export const deleteMachineAsync = async (
+  request: DeleteMachineRequest,
+): Promise<Machine> => {
+  const response = await apiClient.post<Machine>("/Machine/delete", request);
+  return response.data;
+};
+
+export const updateMachineAsync = async (
+  request: UpdateMachineRequest,
+): Promise<Machine> => {
+  const response = await apiClient.post<Machine>("/Machine/update", request);
+  return response.data;
+};
+
+// Kế hoạch bảo trì
+export const createMachineMaintenanceProcess = async (
+  request: unknown,
+): Promise<MachineMaintenanceProcess> => {
+  const response = await apiClient.post<MachineMaintenanceProcess>(
+    "/MachineMaintenanceProcess/create",
+    request,
+  );
+  return response.data;
+};
+
+export const updateMachineMaintenanceProcess = async (
+  request: unknown,
+): Promise<MachineMaintenanceProcess> => {
+  const response = await apiClient.post<MachineMaintenanceProcess>(
+    "/MachineMaintenanceProcess/update",
+    request,
+  );
+  return response.data;
+};
+
+export const searchMachineMaintenanceProcess = async (
+  request: unknown,
+): Promise<SearchResponse<MachineMaintenanceProcess[]>> => {
+  const response = await apiClient.post<
+    SearchResponse<MachineMaintenanceProcess[]>
+  >("/MachineMaintenanceProcess/search", request);
+
+  return response.data;
+};
+
+export const deleteMachineMaintenanceProcessAsync = async (
+  request: unknown,
+): Promise<MachineMaintenanceProcess> => {
+  const response = await apiClient.post<MachineMaintenanceProcess>(
+    "/MachineMaintenanceProcess/delete",
+    request,
+  );
+  return response.data;
+};
+
+export const getMachineMaintenanceProcessAsync = async (
+  request: unknown,
+): Promise<MachineMaintenanceProcess> => {
+  const response = await apiClient.post<MachineMaintenanceProcess>(
+    "/MachineMaintenanceProcess/detail",
+    request,
+  );
+  return response.data;
+};
+
+export const getPartProcessByMachineAsync = async (
+  request: unknown,
+): Promise<SearchResponse<ManufacturingProcess[]>> => {
+  const response = await apiClient.post<SearchResponse<ManufacturingProcess[]>>(
+    "/Process/get-part-process-by-machine",
+    request,
+  );
+  return response.data;
+};
+
+// Machine log
+export const getLatestMachineLogsAsync = async (
+  request: unknown,
+): Promise<MachineLog[]> => {
+  const response = await apiClient.post<MachineLog[]>(
+    "/MachineLog/latest",
+    request,
+  );
+  return response.data;
+};

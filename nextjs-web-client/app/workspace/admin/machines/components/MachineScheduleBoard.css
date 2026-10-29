@@ -1,0 +1,74 @@
+.timeline-date-header {
+  min-width: 100px;
+  text-align: center;
+}
+
+.timeline-empty-box {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  color: #FFFF;
+  font-size: 12px;
+  background: #949494;
+}
+
+.timeline-card {
+  width: 100%;
+  min-height: 90px;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  text-align: left;
+  word-break: break-word;
+}
+
+.timeline-card-planned {
+  background: #F7F29B;
+  border-color: #91caff;
+}
+
+.timeline-card-in-progress {
+  background: #198754;
+  border-color: #ffd591;
+}
+
+.timeline-card-in-progress-past {
+  background: #47766b;
+  border-color: #a8c5bd;
+}
+
+.timeline-card-cutover-source {
+  background: #fce4ec;
+  border-color: #f48fb1;
+}
+
+.timeline-card-cutover-continuation {
+  background: #f3b2c2;
+  border-color: #e57391;
+}
+
+.timeline-card-done {
+  background: #f6ffed;
+  border-color: #b7eb8f;
+}
+
+.timeline-card-cancelled {
+  background: #fff1f0;
+  border-color: #ffa39e;
+}
+
+.timeline-card-overdue {
+  background: #fff2e8;
+  border-color: #ffbb96;
+}
+
+.machine-information {
+  min-width: 180px;
+}
+
+.ant-table-cell {
+  vertical-align: top;
+}

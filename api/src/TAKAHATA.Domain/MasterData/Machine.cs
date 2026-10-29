@@ -1,0 +1,25 @@
+﻿using TAKAHATA.Domain.Common;
+using TAKAHATA.Domain.Common.Enum;
+
+namespace TAKAHATA.Domain.MasterData
+{
+    public class Machine : Entity
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Code { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
+        public string Brand { get; set; } = string.Empty;
+        public MachineStatus MachineStatus { get; set; }
+        public DateTime? MachineStatusChangeAt { get; set; }
+
+        public int PartId { get; set; }
+        public int PartProcessId { get; set; }
+
+        public bool IsAutomatic { get; set; } = true;
+        public int StatusBitAddress { get; set; }
+        public int PartBitAddress { get; set; }
+        public int PartProcessBitAddress { get; set; }
+        public int ProcessStatusBitAddress { get; set; }
+        public List<MachineMaintenanceProcess> MachineMaintenanceProcesses { get; set; } = [];
+    }
+}
